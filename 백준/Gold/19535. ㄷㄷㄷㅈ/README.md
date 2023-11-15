@@ -1,5 +1,3 @@
-![image](https://github.com/ivymso13/Algorithm/assets/37726188/1c35f5ce-ed60-4f1d-83c0-e6f3a054e3d0)# [Gold III] ㄷㄷㄷㅈ - 19535 
-
 [문제 링크](https://www.acmicpc.net/problem/19535) 
 
 ### 성능 요약
