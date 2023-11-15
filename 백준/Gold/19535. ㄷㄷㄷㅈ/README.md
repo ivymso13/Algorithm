@@ -1,4 +1,4 @@
-# [Gold III] ㄷㄷㄷㅈ - 19535 
+![image](https://github.com/ivymso13/Algorithm/assets/37726188/1c35f5ce-ed60-4f1d-83c0-e6f3a054e3d0)# [Gold III] ㄷㄷㄷㅈ - 19535 
 
 [문제 링크](https://www.acmicpc.net/problem/19535) 
 
@@ -18,7 +18,7 @@
 
 <p>어느 날, 트리를 물끄러미 보고 있던 동현이는 엄청난 사실을 하나 발견했다. 바로 정점이 네 개인 트리는 ‘ㄷ’과 ‘ㅈ’의 두 종류밖에 없다는 사실이다!</p>
 
-<p style="text-align: center;"><img alt="" src="" style="width: 700px; height: 257px;"></p>
+![image](https://github.com/ivymso13/Algorithm/assets/37726188/d6a59113-6766-4679-a2c3-9fa320eda37a)
 
 <p>정점이 네 개 이상 있는 임의의 트리에 대해, 그 트리에서 정점 네 개로 이루어진 집합을 고르자. 전체 트리의 간선들 중 집합에 속한 두 정점을 잇는 간선만을 남겼을 때, 네 개의 정점이 하나의 트리 형태로 이어지게 된다면 ‘ㄷ’ 모양이거나 ‘ㅈ’ 모양일 것이다. 트리에서 ‘ㄷ’의 개수와 ‘ㅈ’의 개수를 각각 트리에서 ‘ㄷ’ 모양, ‘ㅈ’ 모양을 이루는 정점 네 개짜리 집합의 개수라고 하자.</p>
 
