@@ -11,6 +11,7 @@ char d;
 
 int cntL, l, r;
 PAIR inp[NMAX], ret[NMAX];
+PAIR retL, retR;
 
 bool cmp(PAIR a, PAIR b) { return abs(a.first) < abs(b.first); }
 
@@ -19,6 +20,7 @@ int main() {
         // 초깃값
         cntL = 0;
         l = r = 0;
+        retL = retR = {-1, -1};
 
         // 입력
         for(int i=0;i<A;i++) {
@@ -41,6 +43,7 @@ int main() {
                 while(inp[l].second > 0) l++;
 
                 ret[i] = {inp[l++].first, inp[i].first};
+                retL = max(retL, ret[i]);
             }
                 // 나머지는 오른쪽으로 떨어짐
             else {
@@ -48,17 +51,16 @@ int main() {
                 while(inp[r].second < 0) r++;
 
                 ret[i] = {L - inp[r++].first, inp[i].first};
+                retR = max(retR, ret[i]);
             }
         }
 
-        // 결괏값 정렬
-        sort(ret, ret+A);
-
         // 출력
-        // 2개 이상인 경우에는 모두 출력하기
-        if(A>=2 and ret[A-1].first == ret[A-2].first)
-            printf("The last ant will fall down in %d seconds - started at %d and %d.\n", ret[A-1].first, ret[A-2].second, ret[A-1].second);
+        if(retL.first > retR.first)
+            printf("The last ant will fall down in %d seconds - started at %d.\n", retL.first, retL.second);
+        else if(retL.first < retR.first)
+            printf("The last ant will fall down in %d seconds - started at %d.\n", retR.first, retR.second);
         else
-            printf("The last ant will fall down in %d seconds - started at %d.\n", ret[A-1].first, ret[A-1].second);
+            printf("The last ant will fall down in %d seconds - started at %d and %d.\n", retL.first, min(retL.second, retR.second), max(retL.second, retR.second));
     }
 }
