@@ -1,31 +1,18 @@
 #include <stdio.h>
-#include <deque>
 #include <algorithm>
+#define NMAX 100010
 using namespace std;
 
 int N, t;
-double ft, bk, ret;
-deque< double > dq;
+double inp[NMAX];
 
 int main() {
     scanf("%d", &N);
-    for(int i=1;i<=N;i++) {
-        scanf("%d", &t);
-        dq.push_back(t);
-    }
+    for(int i=1;i<=N;i++) scanf("%lf", &inp[i]);
     
-    sort(dq.begin(), dq.end());
+    sort(inp+1, inp+N+1);
     
-    while(dq.size()>1) {
-        ft = dq.front();
-        dq.pop_front();
-        
-        bk = dq.back();
-        dq.pop_back();
-        
-        dq.push_back(bk + ft/2);
-    }
+    for(int i=1;i<N;i++) inp[N] += inp[i]/2;
     
-    ret = dq.front();
-    printf("%lf", ret);
+    printf("%lf", inp[N]);
 }
