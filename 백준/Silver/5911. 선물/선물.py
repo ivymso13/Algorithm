@@ -4,13 +4,13 @@ inp = []
 for _ in range(N):
     p, s = map(int, input().split())
 
-    inp.append([p+s, p])
+    inp.append([p+s, p//2+s])
 
 inp.sort()
 
 ret = 0
 for i in range(N):
-    tot = inp[i][0] - (inp[i][1] - inp[i][1]//2)
+    tot = inp[i][1]
     if tot > B:
         continue
     
@@ -18,13 +18,11 @@ for i in range(N):
     for j in range(N):
         if i == j:
             continue
-
         elif tot + inp[j][0] > B:
             break
 
-        else:
-            tot += inp[j][0]
-            cnt += 1
+        tot += inp[j][0]
+        cnt += 1
 
     ret = max(ret, cnt)
 
