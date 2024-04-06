@@ -74,7 +74,7 @@ int main() {
             str.push_back({point[j], i});
         }
     }
-    
+
     // 정렬
     sort(str.begin(), str.end());
 
@@ -94,6 +94,7 @@ int main() {
     for(int i=0;i<N;i++) {
         s = bSearch(inp[i].s, 0);
         e = bSearch(inp[i].e-1, 1);
+        if(s > e) continue;
 
         t = segSearch(s+sz, e+sz);
         if(inp[i].s <= bar[t].first and bar[t].second < inp[i].e) ret[t] += inp[i].t;
