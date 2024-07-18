@@ -3,14 +3,17 @@
 int N;
 int inp[250010];
 
-int diff, bef, cur;
+long long diff, bef, cur;
 long long ret;
 
-int check[1000010];
+long long check[1000010];
 
-int getDiff(int a, int b) {
+int getDiff(int a, int b, int f) {
     int ret = 0;
-    while(a < b) {
+    
+    while(a <= b) {
+        if(f and a == b) break;
+        
         a *= 2;
         ret++;
     }
@@ -24,18 +27,15 @@ int main() {
     
     for(int i=2;i<=N;i++) {
         if(inp[i-1] < inp[i]) {
-            diff = getDiff(inp[i-1], inp[i]);
+            diff = getDiff(inp[i-1], inp[i], 0);
             
             bef = check[inp[i-1]] - diff;
             
-            if(bef >= check[inp[i]]) {
-                if(inp[i]%inp[i-1] == 0 and inp[i]%2 == 0) check[inp[i]] = bef;
-                else check[inp[i]] = bef+1;
-            }
+            if(bef >= check[inp[i]]) check[inp[i]] = bef+1;
             
         }
         else if(inp[i-1] > inp[i]) {
-            diff = getDiff(inp[i], inp[i-1]);
+            diff = getDiff(inp[i], inp[i-1], 1);
             
             cur = check[inp[i]] - diff;
             if(check[inp[i-1]] > cur) check[inp[i]] = check[inp[i-1]] + diff;
