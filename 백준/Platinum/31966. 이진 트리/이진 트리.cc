@@ -25,7 +25,7 @@ int main() {
         tree[i].ret = (tree[i].ret + (tree[a].right * tree[b].sz) + (tree[b].left * tree[a].sz) - 1)%MOD;
         
         // tree[i].sz : 말단 노드의 개수
-        tree[i].sz = tree[a].sz + tree[b].sz;
+        tree[i].sz = (tree[a].sz + tree[b].sz)%MOD;
         
         // tree[i].left : 맨 왼쪽 자식을 포함하는 f(a, b)의 값
         // tree[b].left + tree[b].sz : tree[a]를 모두 사용하고, tree[b]의 일부분을 사용할 때의 f(a, b) 값
