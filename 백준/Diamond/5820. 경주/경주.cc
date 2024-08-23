@@ -14,6 +14,8 @@ vector< PAIR > adj[INF];
 
 int sz[INF], dist[DMAX];
 bool visited[INF];
+vector< int > visitNode;
+
 
 bool check(int idx, int p) { return (!visited[idx] and idx != p); }
 
@@ -54,6 +56,7 @@ void update(int idx, int par, int tot, int depth) {
     
     // tot까지의 최솟값 갱신
     dist[tot] = min(dist[tot], depth);
+    visitNode.push_back(tot);
     
     for(auto[child, c]:adj[idx]) {
         if(!check(child, par)) continue;
@@ -66,11 +69,11 @@ int sv(int idx) {
     
     // 센트로이드 탐색
     cIdx = getCentroid(idx, -1, getSz(idx, -1));
+    visited[cIdx] = 1;
     
     // 센트로이드 기준 경로 파악
-    for(int i=0;i<=K;i++) dist[i] = INF;
-    dist[0] = 0;
-    visited[cIdx] = 1;
+    for(int node:visitNode) dist[node] = INF;
+    visitNode.clear();
     
     ret = INF;
     for(auto[child, c]:adj[cIdx]) {
@@ -100,6 +103,8 @@ int main() {
         adj[a].push_back({b, t});
         adj[b].push_back({a, t});
     }
+    
+    for(int i=1;i<=K;i++) dist[i] = INF;
     
     // (1) 현재 트리에서의 센트로이드 찾기
     // (2) 모든 자식 노드부터 센트로이드까지 경로 확인하기
